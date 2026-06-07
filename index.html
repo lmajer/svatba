@@ -114,6 +114,14 @@ body{font-family:'Raleway',sans-serif;font-weight:300;background:var(--ivory);co
 .rsvp-btn:hover{background:var(--rose)}
 .rsvp-note{font-size:.75rem;color:var(--mid);margin-top:.6rem;letter-spacing:.04em;opacity:.7}
 .success{display:none;padding:3rem 0;font-family:'Playfair Display',serif;font-style:italic;font-size:1.6rem;color:var(--rose);line-height:1.6}
+.rsvp-btn:disabled {
+  background: var(--mid);
+  cursor: not-allowed;
+}
+.required-star {
+  color: var(--rose);
+  margin-left: .2rem;
+}
 
 /* FOOTER */
 footer{background:var(--deep);text-align:center;padding:4rem 2rem 3rem}
@@ -217,20 +225,20 @@ footer{background:var(--deep);text-align:center;padding:4rem 2rem 3rem}
     <p class="s-sub" style="margin:0 auto">Vaše přítomnost je pro nás tím nejkrásnějším darem.</p>
     <form class="rsvp-form" id="rsvpForm" action="https://formspree.io/f/mgobaajo" method="POST">
       <div class="row2">
-        <input type="text" name="jmeno" placeholder="Jméno" id="fn" required/>
-        <input type="text" name="prijmeni" placeholder="Příjmení" id="ln" required/>
+        <input type="text" name="jmeno" placeholder="Jméno *" id="fn" required/>
+<input type="text" name="prijmeni" placeholder="Příjmení *" id="ln" required/>
       </div>
       <input type="email" name="email" placeholder="E-mail"/>
       <div class="attend-row">
         <label class="att-lbl"><input type="radio" name="ucast" value="Přijdu" checked/> S radostí přijdu</label>
         <label class="att-lbl"><input type="radio" name="ucast" value="Nepřijdu"/> S lítostí se omlouvám</label>
       </div>
-      <select name="hosté">
-        <option value="">Počet hostů</option>
+      <select name="hosté" required>
+        <option value="">Počet hostů *</option>
         <option>1 host</option><option>2 hosté</option><option>3 hosté</option><option>4 hosté</option>
       </select>
-      <select name="jidlo">
-        <option value="">Výběr jídla</option>
+      <select name="jidlo" required>
+        <option value="">Výběr jídla *</option>
         <option>Kuřecí</option><option>Ryba</option><option>Vegetariánské</option><option>Veganské</option>
       </select>
       <textarea name="vzkaz" placeholder="Dietní omezení nebo vzkaz pro nás…"></textarea>
@@ -248,6 +256,28 @@ footer{background:var(--deep);text-align:center;padding:4rem 2rem 3rem}
 </footer>
 
 <script>
+  function checkForm() {
+  var fn = document.getElementById('fn').value.trim();
+  var ln = document.getElementById('ln').value.trim();
+  var hosté = document.querySelector('select[name="hosté"]').value;
+  var jidlo = document.querySelector('select[name="jidlo"]').value;
+  var btn = document.querySelector('.rsvp-btn');
+  
+  if (fn && ln && hosté && jidlo) {
+    btn.disabled = false;
+    btn.style.opacity = '1';
+    btn.style.cursor = 'pointer';
+  } else {
+    btn.disabled = true;
+    btn.style.opacity = '.35';
+    btn.style.cursor = 'not-allowed';
+  }
+}
+
+document.querySelectorAll('#rsvpForm input, #rsvpForm select, #rsvpForm textarea')
+  .forEach(function(el) { el.addEventListener('input', checkForm); });
+
+checkForm(); // zavolej hned na začátku aby bylo tlačítko disabled
 function tick(){
   var t=new Date('2027-07-10T15:00:00'),n=new Date(),d=t-n;
   if(d<0){document.getElementById('countdown').innerHTML='<p style="grid-column:span 4;font-family:\'Playfair Display\',serif;font-style:italic;color:#c47a6a;font-size:1.4rem">Dnes je ten den! ✦</p>';return}
