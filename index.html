@@ -104,6 +104,11 @@ body{font-family:'Raleway',sans-serif;font-weight:300;background:var(--ivory);co
 .attend-row{display:flex;gap:2rem;justify-content:center;padding:.5rem 0}
 .att-lbl{display:flex;align-items:center;gap:.6rem;cursor:pointer;font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;color:var(--mid)}
 .att-lbl input{accent-color:var(--gold);width:auto}
+.att-lbl:has(input:checked) {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--ivory);
+}
 .submit-wrap{margin-top:1rem;display:flex;justify-content:center}
 .rsvp-btn{background:var(--deep);border:none;color:var(--ivory);font-family:'Raleway',sans-serif;font-weight:400;font-size:.7rem;letter-spacing:.45em;text-transform:uppercase;padding:1.1rem 3.5rem;cursor:pointer;transition:background .3s;border-radius:1px}
 .rsvp-btn:hover{background:var(--rose)}
@@ -180,7 +185,7 @@ footer{background:var(--deep);text-align:center;padding:4rem 2rem 3rem}
     <h2 class="s-title">Jak to začalo</h2>
     <p class="s-sub">Každá láska má svůj příběh. Tady je ten náš.</p>
     <div class="timeline">
-      <div class="tl"><span class="tl-year">2019</span><div class="tl-line"></div><div><h4>První setkání</h4><p>Poprvé jsme se potkali na pražškém hlavním nádraží, odkud jsme vyráželi na vodu. V průběhu vody jsme se postupně zbližovali a nakonec jsme se dali dohromady. Bylo to jako z románu, a od té doby jsme nerozluční.</p></div></div>
+      <div class="tl"><span class="tl-year">2017</span><div class="tl-line"></div><div><h4>První setkání</h4><p>Poprvé jsme se potkali na pražškém hlavním nádraží, odkud jsme vyráželi na vodu. V průběhu vody jsme se postupně zbližovali a nakonec jsme se dali dohromady. Bylo to jako z románu, a od té doby jsme nerozluční.</p></div></div>
       <div class="tl"><span class="tl-year">2020</span><div class="tl-line"></div><div><h4>Společný domov</h4><p>Nastěhovali jsme se spolu do malého bytu v centru Prahy. Akorat začala pandemie kovidu.</p></div></div>
       <div class="tl"><span class="tl-year">2025</span><div class="tl-line"></div><div><h4>Zájezd</h4><p>Společně jsme vyrazili na zatím největší dobrodružství - Roční pobyt na Novém Zélandu</p></div></div>
       <div class="tl"><span class="tl-year">2027</span><div class="tl-line"></div><div><h4>Náš velký den</h4><p>10. července si řekneme své "ano". Budeme rádi, když to oslavíte s námi.</p></div></div>
