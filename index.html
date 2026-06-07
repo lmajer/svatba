@@ -244,7 +244,7 @@ footer{background:var(--deep);text-align:center;padding:4rem 2rem 3rem}
       <textarea name="vzkaz" placeholder="Dietní omezení nebo vzkaz pro nás…"></textarea>
       <div class="submit-wrap"><button type="submit" class="rsvp-btn">Odeslat odpověď</button></div>
     </form>
-    <div class="success" id="successMsg">Děkujeme — nemůžeme se dočkat,<br>až s vámi oslavíme! ✦</div>
+    <div class="success" id="successMsg">Děkujeme — nemůžeme se dočkat,<br>až to s vámi oslavíme! ✦</div>
   </div>
 </div>
 
@@ -296,7 +296,14 @@ document.getElementById('rsvpForm').addEventListener('submit',function(e){
   var action=this.action;
   if(action.includes('mgobaajo')){
     this.style.display='none';
-    document.getElementById('successMsg').style.display='block';
+    var att = document.querySelector('input[name="ucast"]:checked').value;
+    var msg = document.getElementById('successMsg');
+    if (att === 'Nepřijdu') {
+      msg.innerHTML = 'Moc nás to mrzí —<br>budete nám chybět. ✦';
+    } else {
+      msg.innerHTML = 'Děkujeme — nemůžeme se dočkat,<br>až to s vámi oslavíme! ✦';
+    }
+    msg.style.display='block';
     return;
   }
   var data=new FormData(this);
