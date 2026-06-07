@@ -76,12 +76,46 @@ body{font-family:'Raleway',sans-serif;font-weight:300;background:var(--ivory);co
 .gallery-bg{background:var(--petal);padding:6rem 2rem}
 .gallery-wrap{max-width:960px;margin:0 auto}
 .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3rem}
-.gitem{border-radius:3px;overflow:hidden;background:var(--ivory);cursor:pointer;transition:opacity .3s}
-.gitem:hover{opacity:.85}
-.gitem.tall{grid-row:span 2}
-.gitem.wide{grid-column:span 2}
-.ginner{width:100%;min-height:180px;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
-.gitem.tall .ginner{min-height:380px}
+.gitem {
+  background: #fffef9;
+  border-radius: 2px;
+  padding: .8rem .8rem .8rem .8rem;
+  box-shadow: 2px 3px 12px rgba(61,43,31,.12);
+  display: flex;
+  flex-direction: column;
+  transition: transform .3s;
+  cursor: pointer;
+}
+
+.gitem:hover {
+  transform: rotate(1deg) scale(1.02);
+}
+
+.gitem img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+}
+
+.gitem.tall img {
+  aspect-ratio: unset;
+  height: 100%;
+  flex: 1;
+}
+
+.gitem.wide img {
+  aspect-ratio: 2/1;
+}
+
+.polaroid-caption {
+  font-family: 'Raleway', sans-serif;
+  font-size: .78rem;
+  color: var(--mid);
+  text-align: center;
+  padding: .6rem .3rem .2rem;
+  letter-spacing: .05em;
+}
 .gph{font-size:1.3rem;opacity:.22}
 .gph-lbl{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mid);opacity:.4}
 
@@ -207,12 +241,12 @@ footer{background:var(--deep);text-align:center;padding:4rem 2rem 3rem}
     <span class="s-label">Galerie</span>
     <h2 class="s-title">Naše chvíle</h2>
     <div class="gallery-grid">
-      <div class="gitem tall"><img src="nebeslunko.jpeg" style="width:100%;height:100%;object-fit:cover;"></div>
-      <div class="gitem"><img src="nebeslunko.jpeg" style="width:100%;height:100%;object-fit:cover;"></div>
-      <div class="gitem"><img src="nebeslunko.jpeg" style="width:100%;height:100%;object-fit:cover;"></div>
-      <div class="gitem wide"><img src="nebeslunko.jpeg" style="width:100%;height:100%;object-fit:cover;"></div>
-      <div class="gitem"><img src="nebeslunko.jpeg" style="width:100%;height:100%;object-fit:cover;"></div>
-      <div class="gitem"><img src="nebeslunko.jpeg" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div class="gitem tall"><img src="nebeslunko.jpeg" style="width:100%;height:100%;object-fit:cover;"><p class="polaroid-caption">První setkání</p></div>
+      <div class="gitem"><img src="nebeslunko.jpeg" style="width:100%;height:100%;object-fit:cover;"><p class="polaroid-caption">První setkání</p></div>
+      <div class="gitem"><img src="nebeslunko.jpeg" style="width:100%;height:100%;object-fit:cover;"><p class="polaroid-caption">První setkání</p></div>
+      <div class="gitem wide"><img src="nebeslunko.jpeg" style="width:100%;height:100%;object-fit:cover;"><p class="polaroid-caption">První setkání</p></div>
+      <div class="gitem"><img src="nebeslunko.jpeg" style="width:100%;height:100%;object-fit:cover;"><p class="polaroid-caption">První setkání</p></div>
+      <div class="gitem"><img src="nebeslunko.jpeg" style="width:100%;height:100%;object-fit:cover;"><p class="polaroid-caption">První setkání</p></div>
     </div>
   </div>
 </div>
