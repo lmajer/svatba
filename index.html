@@ -497,7 +497,7 @@ document.getElementById('rsvpForm').addEventListener('submit',function(e){
   var att=document.querySelector('input[name="ucast"]:checked').value;
   var msg=document.getElementById('successMsg');
   var zprava=att==='Nepřijdu'?'Moc nás to mrzí —<br>budete nám chybět. ✦':'Děkujeme — nemůžeme se dočkat,<br>až s vámi oslavíme! ✦';
-  if(action.includes('mgobaajo')){
+  if(action.includes('TEST_ID')){
     this.style.display='none';
     msg.innerHTML=zprava;
     msg.style.display='block';
